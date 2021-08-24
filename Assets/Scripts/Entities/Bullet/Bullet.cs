@@ -9,9 +9,8 @@ public class Bullet : MonoBehaviour
     public float DeadSecond = 3f;
     [Range(0, 200)]
     public float Speed = 100f;
- 
-    public Vector3 StartPos { get; set; }
-    public Vector3 TargetPos { get; set; }
+
+    public Plane plane;
 
     private bool isOriginal;
 
@@ -19,10 +18,13 @@ public class Bullet : MonoBehaviour
     private float time = 0f;
 
     public void Start()
-    {
+    {     
         isOriginal = this.gameObject == GameObject.Find("Bullet");
+
+
+
         this.GetComponent<Rigidbody>().AddForce(
-            transform.forward * Speed,
+            plane.gameObject.transform.forward * Speed,
             ForceMode.VelocityChange
         );
     }
@@ -31,6 +33,15 @@ public class Bullet : MonoBehaviour
     {
         
         time += Time.deltaTime;
+
+       this.GetComponent<Rigidbody>().transform.Rotate(
+            new Vector3(
+                0f,
+                0.01f,
+                0f
+            )
+        );
+
 
         if(!isOriginal && time > DeadSecond){
             Object.Destroy(gameObject);

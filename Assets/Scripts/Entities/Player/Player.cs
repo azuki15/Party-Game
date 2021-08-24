@@ -19,6 +19,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // this.GetComponent<Rigidbody>().transform.Rotate(
+        //     new Vector3(
+        //         0f,
+        //         0.01f,
+        //         0f
+        //     )
+        // );
+
+        this.GetComponent<Rigidbody>().transform.RotateAround(
+            Vector3.zero,
+            Vector3.up,
+            -0.002f
+        );
     }
+
 }

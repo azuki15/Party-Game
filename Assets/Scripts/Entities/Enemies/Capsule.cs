@@ -39,8 +39,8 @@ public class Capsule : MonoBehaviour
         }
         else
         {
-            var vector = plane.transform.position - transform.position;
-            transform.position += vector.normalized * Speed * Time.deltaTime;
+            // var vector = plane.transform.position - transform.position;
+            // transform.position += vector.normalized * Speed * Time.deltaTime;
         }
     }
 
@@ -60,8 +60,8 @@ public class Capsule : MonoBehaviour
         }
     }
 
-    private void OnMouseUpAsButton()
-    {
-        plane.ShotBullet(transform.position);
-    }
+    // private void OnMouseUpAsButton()
+    // {
+    //     plane.ShotBullet(transform.position);
+    // }
 }

@@ -36,6 +36,7 @@ public class Plane : MonoBehaviour
             Input.GetAxisRaw("Vertical") * moveSpeed,
             0
         );
+        
 
 
         if (Input.GetButtonDown("Jump")) {
