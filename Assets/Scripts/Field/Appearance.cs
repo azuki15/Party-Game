@@ -9,25 +9,17 @@ public class Appearance : MonoBehaviour
 
     [SerializeField] float appearNextTime;
 
-    [SerializeField] int maxNumOfEnemys;
-
-    private int numberOfEnemys;
-
     private float elapsedTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        numberOfEnemys = 0;
         elapsedTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(numberOfEnemys >= maxNumOfEnemys) {
-            return;
-        }
 
         elapsedTime += Time.deltaTime;
 
@@ -57,7 +49,6 @@ public class Appearance : MonoBehaviour
             Quaternion.Euler (randomRotationX, randomRotationY, randomRotationZ)
         );
  
-	    numberOfEnemys++;
 	    elapsedTime = 0f;
     }
 }
