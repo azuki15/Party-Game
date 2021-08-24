@@ -15,34 +15,25 @@ public class Bullet : MonoBehaviour
 
     private bool isOriginal;
 
+
+    private float time = 0f;
+
     public void Start()
     {
         isOriginal = this.gameObject == GameObject.Find("Bullet");
+        this.GetComponent<Rigidbody>().AddForce(
+            transform.forward * Speed,
+            ForceMode.VelocityChange
+        );
     }
  
-    public void Init(Vector3 startPos, Vector3 targetPos)
-    {
-        StartPos = startPos;
-        TargetPos = targetPos;
-        StartCoroutine(Move());
-    }
- 
-    IEnumerator Move()
+    public void Update()
     {
         
-        float time = 0f;
-        transform.position = StartPos;
-        var vec = (TargetPos - StartPos).normalized;
-        while(time < DeadSecond)
-        {
-            time += Time.deltaTime;
-            transform.position += vec * Speed * Time.deltaTime;
-            yield return null;
-        }
- 
-        if(!isOriginal){
+        time += Time.deltaTime;
+
+        if(!isOriginal && time > DeadSecond){
             Object.Destroy(gameObject);
         }
-
-    }
+     }
 }

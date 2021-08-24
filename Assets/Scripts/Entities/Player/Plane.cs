@@ -10,9 +10,15 @@ public class Plane : MonoBehaviour
 
     public float initialLife = 100;
     public float Life = 100;
+
+    public float interval = 1f;
+    private float time = 0f;
+
     public Image LifeGage;
 
     public Bullet BulletPrefab;
+
+    public SceneManager sceneManager;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +29,19 @@ public class Plane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+
         this.GetComponent<Rigidbody>().transform.Translate(
             Input.GetAxisRaw("Horizontal") * moveSpeed,
             Input.GetAxisRaw("Vertical") * moveSpeed,
             0
         );
+
+
+        if (Input.GetButtonDown("Jump")) {
+            ShotBullet(transform.position);
+            sceneManager.AddScore(-30);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -44,20 +58,20 @@ public class Plane : MonoBehaviour
             {
                 Camera.main.transform.SetParent(null);
                 gameObject.SetActive(false);
-                var sceneManager = Object.FindObjectOfType<SceneManager>();
+                // var sceneManager = Object.FindObjectOfType<SceneManager>();
                 sceneManager.ShowGameOver();
             }
         }
     }
 
-    private void OnMouseUpAsButton()
-    {
-        ShotBullet(transform.position);
-    }
+    // private void OnMouseUpAsButton()
+    // {
+    //     ShotBullet(transform.position);
+    // }
 
     public void ShotBullet(Vector3 targetPos){
 
-        var bullet = Object.Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-        bullet.Init(transform.position, targetPos);
+        Object.Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+
     }
 }

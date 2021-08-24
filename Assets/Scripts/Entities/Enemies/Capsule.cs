@@ -14,6 +14,8 @@ public class Capsule : MonoBehaviour
 
     public float Life = 10;
 
+    public SceneManager sceneManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,8 @@ public class Capsule : MonoBehaviour
             if(Life <= 0)
             {
                 Object.Destroy(gameObject);
+                // var sceneManager = Object.FindObjectOfType<SceneManager>();
+                sceneManager.AddScore(100);
             }
         }
     }
