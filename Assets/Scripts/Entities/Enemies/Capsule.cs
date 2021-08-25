@@ -21,7 +21,7 @@ public class Capsule : MonoBehaviour
     {
         time = 0f;
         plane = Object.FindObjectOfType<Plane>();
-        isOriginal = this.gameObject == GameObject.Find("Capsule");
+        isOriginal = this.gameObject == GameObject.Find("Enemy1");
     }
 
     // Update is called once per frame
@@ -39,8 +39,8 @@ public class Capsule : MonoBehaviour
         }
         else
         {
-            // var vector = plane.transform.position - transform.position;
-            // transform.position += vector.normalized * Speed * Time.deltaTime;
+            var vector = plane.transform.position - transform.position;
+            transform.position += vector.normalized * Speed * Time.deltaTime;
         }
     }
 

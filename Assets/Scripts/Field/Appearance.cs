@@ -11,6 +11,8 @@ public class Appearance : MonoBehaviour
 
     private float elapsedTime;
 
+    public float range = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +36,14 @@ public class Appearance : MonoBehaviour
         var randomValue = Random.Range(0, enemys.Length);
 
         var vector = transform.position + new Vector3(
-            Random.value * 5f,
-            Random.value * 5f,
-            Random.value * 5f
+            Random.value * range,
+            Random.value * range,
+            Random.value * range
         );
 
         var randomRotationX = Random.value * 360f;
         var randomRotationY = Random.value * 360f;
-        var randomRotationZ = Random.value * 360f;
+        var randomRotationZ = 0;
 
         GameObject.Instantiate (
             enemys[randomValue],
