@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Shooting
+{
 public class Appearance : MonoBehaviour
 {
 
@@ -53,4 +55,6 @@ public class Appearance : MonoBehaviour
  
 	    elapsedTime = 0f;
     }
+}
+
 }

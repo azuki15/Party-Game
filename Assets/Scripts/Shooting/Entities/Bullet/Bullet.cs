@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Shooting
+{
+    public class Bullet : MonoBehaviour
 {
 
     [Range(0, 10)]
@@ -48,3 +50,5 @@ public class Bullet : MonoBehaviour
         }
      }
 }
+}
+

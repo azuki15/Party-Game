@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Shooting
+{
 public class Capsule : MonoBehaviour
 {
     [Range(0, 100)]
@@ -64,4 +66,6 @@ public class Capsule : MonoBehaviour
     // {
     //     plane.ShotBullet(transform.position);
     // }
+}
+
 }

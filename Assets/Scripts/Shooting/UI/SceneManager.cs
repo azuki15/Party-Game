@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace Shooting
+{
 public class SceneManager : MonoBehaviour
 {
 
@@ -27,4 +29,5 @@ public class SceneManager : MonoBehaviour
         currentScore += score;
         ScoreText.text = currentScore.ToString();
     }
+}
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace Shooting
+{
 public class Plane : MonoBehaviour
 {
 
@@ -75,4 +77,6 @@ public class Plane : MonoBehaviour
         Object.Instantiate(BulletPrefab, transform.position, Quaternion.identity);
 
     }
+}
+
 }
