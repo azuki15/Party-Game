@@ -24,11 +24,79 @@ namespace Avoiding
 
         void Update()
         {
+
+            var Horizontal = Input.GetAxis("Horizontal");
+            var Vertical = Input.GetAxis("Vertical");
+
+
+
             direction = new Vector3(
-                    Input.GetAxis("Horizontal") * speed,
+                    Horizontal * speed,
                     0,
-                    Input.GetAxis("Vertical") * speed
+                    Vertical * speed
                 );
+
+
+            float radious;
+
+
+
+            if(Horizontal == 1)
+            {
+                if(Vertical == 1)
+                {
+                    radious = 315f;
+                }
+                else if(Vertical == 0 )
+                {
+                    radious = 0f;
+                }
+                else
+                {
+                    radious = 45f;
+                }
+            }
+            else if(Horizontal == 0)
+            {
+                if(Vertical == 1)
+                {
+                    radious = 270f;
+                }
+                else if(Vertical == 0 )
+                {
+                    radious = 0f;
+                }
+                else
+                {
+                    radious = 90f;
+
+                }
+            }
+            else
+            {
+                if(Vertical == 1)
+                {
+                    radious = 215f;
+                }
+                else if(Vertical == 0 )
+                {
+                    radious = 180f;
+                }
+                else
+                {
+                    radious = 135f;
+
+                }
+            }
+
+            if(Horizontal != 0 || Vertical != 0)
+            {
+                rb.transform.rotation = Quaternion.Euler(
+                        0,
+                        radious,
+                        0
+                );
+            }
         }
 
         // Update is called once per frame
